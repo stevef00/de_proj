@@ -21,3 +21,8 @@ class CardsTestClass(TestCase):
         self.assertEqual(response.status_code, 200)
 
         self.assertRegex(response.content, re.compile(b"<h1>Put Cards About Page Here</h1>", re.IGNORECASE))
+
+        #
+        # test that the about.html template properly handles the page title as a parameter
+        #
+        self.assertRegex(response.content, re.compile(b"<title>DE Cards - About</title>", re.IGNORECASE))

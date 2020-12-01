@@ -23,4 +23,4 @@ def home(request):
     return render(request, 'cards/home.html', context)
 
 def about(request):
-    return render(request, 'cards/about.html')
+    return render(request, 'cards/about.html', {'title': 'About'})
