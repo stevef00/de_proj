@@ -12,3 +12,12 @@ class CardsTestClass(TestCase):
         self.assertEqual(response.status_code, 200)
 
         self.assertRegex(response.content, re.compile(b"<h1>DE Cards Home</h1>", re.IGNORECASE))
+
+    def test_cards_about_view(self):
+        #
+        # Note: URL needs a trailing '/' or we get a 301
+        #
+        response = self.client.get('/cards/about/')
+        self.assertEqual(response.status_code, 200)
+
+        self.assertRegex(response.content, re.compile(b"<h1>Put Cards About Page Here</h1>", re.IGNORECASE))
