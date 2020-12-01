@@ -1,0 +1,2 @@
+$ django-admin startproject de_proj
+$ python manage.py startapp cards
