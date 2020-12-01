@@ -5,4 +5,4 @@ def home(request):
     return render(request, 'cards/home.html')
 
 def about(request):
-    return HttpResponse('<h1>Put Cards About Page Here</h1>')
+    return render(request, 'cards/about.html')
