@@ -7,5 +7,10 @@
 
     <body>
         <h1>DE Cards Home</h1>
+        {% for card in cards %}
+        <div>
+            <b>{{ card.front }}:</b> <i>{{ card.back }}</i>
+        </div>
+        {% endfor %}
     </body>
 </html>
