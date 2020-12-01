@@ -1,15 +1,4 @@
-<!DOCTYPE html>
-
-<html>
-    <head>
-        {% if title %}
-        <title>DE Cards - {{ title }}</title>
-        {% else %}
-        <title>DE Cards</title>
-        {% endif %}
-    </head>
-
-    <body>
-        <h1>Put Cards About Page Here</h1>
-    </body>
-</html>
+{% extends "cards/base.html" %}
+{% block content %}
+<h1>Put Cards About Page Here</h1>
+{% endblock content %}

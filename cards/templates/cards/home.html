@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-
-<html>
-    <head>
-        {% if title %}
-        <title>DE Cards - {{ title }}</title>
-        {% else %}
-        <title>DE Cards</title>
-        {% endif %}
-    </head>
-
-    <body>
-        <h1>DE Cards Home</h1>
-        {% for card in cards %}
-        <div>
-            <b>{{ card.front }}:</b> <i>{{ card.back }}</i>
-        </div>
-        {% endfor %}
-    </body>
-</html>
+{% extends "cards/base.html" %}
+{% block content %}
+  <h1>DE Cards Home</h1>
+  {% for card in cards %}
+  <div>
+    <b>{{ card.front }}:</b> <i>{{ card.back }}</i>
+  </div>
+  {% endfor %}
+{% endblock content %}

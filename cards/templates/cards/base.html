@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        {% if title %}
+        <title>DE Cards - {{ title }}</title>
+        {% else %}
+        <title>DE Cards</title>
+        {% endif %}
+    </head>
+
+    <body>
+    {% block content %}{% endblock %}
+    </body>
+</html>
