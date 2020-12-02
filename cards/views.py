@@ -1,24 +1,10 @@
 from django.shortcuts import render
 from django.http import HttpResponse
-
-cards = [
-    {
-        'owner': 'stevef',
-        'front': 'the train station',
-        'back':  'der Bahnhof',
-        'date_created': 'December 1, 2020',
-    },
-    {
-        'owner': 'stevef',
-        'front': 'the car',
-        'back':  'das Auto',
-        'date_created': 'December 1, 2020',
-    },
-]
+from .models import Card
 
 def home(request):
     context = {
-        'cards': cards,
+        'cards': Card.objects.all()
     }
     return render(request, 'cards/home.html', context)
 
