@@ -32,3 +32,11 @@ class CardsTestClass(TestCase):
         #
         self.assertRegex(response.content,
                 re.compile(b"<link[^>]+\"/static/cards/main.css\">", re.IGNORECASE))
+
+        #
+        # test that about.html has the "Home" link
+        #
+        # FIXME: these sort of tests are pointless, but I'm putting them here
+        #        in preparation for playing with XPath tests.
+        #
+        self.assertRegex(response.content, re.compile(b"<a href=\"/\">Home</a>", re.IGNORECASE))

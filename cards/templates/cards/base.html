@@ -12,6 +12,14 @@
     </head>
 
     <body>
+        <header>
+            <nav>
+                <div>
+                    <a href="{% url 'cards-home' %}">Home</a>
+                    <a href="{% url 'cards-about' %}">About</a>
+                </div>
+            </nav>
+        </header>
     {% block content %}{% endblock %}
     </body>
 </html>
