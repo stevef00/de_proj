@@ -26,3 +26,9 @@ class CardsTestClass(TestCase):
         # test that the about.html template properly handles the page title as a parameter
         #
         self.assertRegex(response.content, re.compile(b"<title>DE Cards - About</title>", re.IGNORECASE))
+
+        #
+        # test that about.html uses the main.css file
+        #
+        self.assertRegex(response.content,
+                re.compile(b"<link[^>]+\"/static/cards/main.css\">", re.IGNORECASE))
