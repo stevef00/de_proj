@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.1/ref/settings/
 
 from pathlib import Path
 import json
+import os
 
 with open('/etc/config.json') as config_file:
     config = json.load(config_file)
@@ -125,6 +126,9 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.1/howto/static-files/
 
 STATIC_URL = '/static/'
+
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+MEDIA_URL = '/media/'
 
 LOGIN_REDIRECT_URL = 'cards-home'
 LOGIN_URL = 'login'
