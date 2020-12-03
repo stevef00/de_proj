@@ -127,3 +127,4 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 LOGIN_REDIRECT_URL = 'cards-home'
+LOGIN_URL = 'login'
