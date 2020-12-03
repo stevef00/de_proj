@@ -1,11 +1,12 @@
 {% extends "cards/base.html" %}
+{% load crispy_forms_tags %}
 {% block content %}
 <div>
     <form method="POST">
         {% csrf_token %}
         <fieldset>
             <legend>Join Today</legend>
-            {{ form.as_p }}
+            {{ form|crispy }}
         </fieldset>
         <div>
             <button type="submit">Sign Up</button>
