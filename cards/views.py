@@ -5,7 +5,8 @@ from django.views.generic import (
         ListView,
         DetailView,
         CreateView,
-        UpdateView
+        UpdateView,
+        DeleteView
 )
 from django.urls import reverse
 from .models import Card
@@ -61,6 +62,17 @@ class CardUpdateView(LoginRequiredMixin, UserPassesTestMixin, UpdateView):
     #
     def get_success_url(self):
         return reverse('cards-home')
+
+class CardDeleteView(LoginRequiredMixin, UserPassesTestMixin, DeleteView):
+    model = Card
+    success_url = '/' # FIXME: maybe we want to redirect somewhere else?
+
+    def test_func(self):
+        post = self.get_object()
+        if self.request.user == post.author:
+            return True
+        else:
+            return False
 
 def about(request):
     return render(request, 'cards/about.html', {'title': 'About'})
