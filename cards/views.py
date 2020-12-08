@@ -1,5 +1,6 @@
-from django.shortcuts import render
+from django.shortcuts import render, get_object_or_404
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.views.generic import (
         ListView,
@@ -17,6 +18,17 @@ class CardListView(ListView):
     context_object_name = 'cards'
     ordering = ['-date_created']
     paginate_by = 1
+
+class UserCardListView(ListView):
+    model = Card
+    template_name = 'cards/user_cards.html' # <app>/<model>_<viewtype>.html
+    context_object_name = 'cards'
+    paginate_by = 1
+
+    def get_queryset(self):
+        user = get_object_or_404(User, username=self.kwargs.get('username'))
+        return Card.objects.filter(author=user).order_by('-date_created')
+
 
 class CardDetailView(DetailView):
     model = Card

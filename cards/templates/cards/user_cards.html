@@ -1,6 +1,6 @@
 {% extends "cards/base.html" %}
 {% block content %}
-  <h1>DE Cards Home</h1>
+  <h1>DE Cards - {{ view.kwargs.username }} ({{ page_obj.paginator.count }})</h1>
   {% for card in cards %}
   <div>
       <a href="{% url 'card-detail' card.id %}">{{ card.front }}</a>:
@@ -8,6 +8,7 @@
       <small>
           (Card created: {{ card.date_created|date:"F d, Y" }}
           by <a href="{% url 'user-cards' card.author.username %}">{{ card.author }}</a>)
+
       </small>
   </div>
   {% endfor %}
