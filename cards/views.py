@@ -16,6 +16,7 @@ class CardListView(ListView):
     template_name = 'cards/home.html' # <app>/<model>_<viewtype>.html
     context_object_name = 'cards'
     ordering = ['-date_created']
+    paginate_by = 1
 
 class CardDetailView(DetailView):
     model = Card
