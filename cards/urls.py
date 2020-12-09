@@ -5,7 +5,12 @@ from .views import (
         CardCreateView,
         CardUpdateView,
         CardDeleteView,
-        UserCardListView
+        UserCardListView,
+        DeckListView,
+        DeckDetailView,
+        DeckCreateView,
+        DeckUpdateView,
+        DeckDeleteView
 )
 from . import views
 
@@ -16,5 +21,10 @@ urlpatterns = [
     path('card/new/', CardCreateView.as_view(), name='card-create'),
     path('card/<int:pk>/update/', CardUpdateView.as_view(), name='card-update'),
     path('card/<int:pk>/delete/', CardDeleteView.as_view(), name='card-delete'),
-    path('about/', views.about, name='cards-about')
+    path('about/', views.about, name='cards-about'),
+    path('deck/', DeckListView.as_view(), name='deck-list'),
+    path('deck/<int:pk>/', DeckDetailView.as_view(), name='deck-detail'),
+    path('deck/<int:pk>/update/', DeckUpdateView.as_view(), name='deck-update'),
+    path('deck/<int:pk>/delete/', DeckDeleteView.as_view(), name='deck-delete'),
+    path('deck/new/', DeckCreateView.as_view(), name='deck-create')
 ]

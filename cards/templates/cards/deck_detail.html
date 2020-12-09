@@ -1,0 +1,13 @@
+{% extends "cards/base.html" %}
+{% block content %}
+  <div>
+      <b>{{ object.deck_name }}</b>
+      <small>
+          (Card created: {{ object.date_created|date:"F d, Y" }})
+          {% if object.author == user %}
+          <a href="{% url 'deck-update' object.id %}">Update</a>
+          <a href="{% url 'deck-delete' object.id %}">Delete</a>
+          {% endif %}
+      </small>
+  </div>
+{% endblock content %}

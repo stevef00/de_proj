@@ -10,7 +10,8 @@ from django.views.generic import (
         DeleteView
 )
 from django.urls import reverse
-from .models import Card
+from cards.models import Card
+
 
 class CardListView(ListView):
     model = Card
