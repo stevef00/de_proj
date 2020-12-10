@@ -10,4 +10,13 @@
           {% endif %}
       </small>
   </div>
+
+  <table border="1">
+  {% for card in cards %}
+  <tr>
+      <td><a href="{% url 'card-detail' card.id %}">{{ card.front }}</a></td>
+      <td><i>{{ card.back }}</i></td>
+  </tr>
+  {% endfor %}
+  </table>
 {% endblock content %}

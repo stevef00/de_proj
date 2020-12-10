@@ -3,7 +3,10 @@
   <h1>DE Cards Home</h1>
   <ul>
   {% for deck in decks %}
-  <li>{{ deck.deck_name }}<a href="{% url 'deck-detail' deck.id %}">update</a></li>
+  <li>
+      <a href="{% url 'deck-detail' deck.id %}">{{ deck.deck_name }}</a>
+        [<a href="{% url 'deck-update' deck.id %}">update</a>]
+  </li>
   {% endfor %}
   </ul>
 
